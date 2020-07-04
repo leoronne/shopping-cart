@@ -5,6 +5,9 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
   background-color: var(--secondary);
   padding: 10px;
   line-height: 1.9;
@@ -12,7 +15,6 @@ export const Container = styled.div`
   -moz-box-shadow: var(--box-shadow);
   box-shadow: var(--box-shadow);
   z-index: 2;
-  position: relative;
 
   @media (min-width: 320px) {
     .header-left {

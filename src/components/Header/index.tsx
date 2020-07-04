@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactTooltip from 'react-tooltip';
 
 import logo from '~/assets/img/logo.png';
 import avatar from '~/assets/img/avatar.jpg';
@@ -25,7 +24,6 @@ const Header: React.FC = () => {
           </li>
         </div>
       </div>
-      <ReactTooltip place="bottom" type="dark" effect="solid" />
     </Container>
   );
 };
