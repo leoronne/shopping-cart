@@ -8,15 +8,17 @@ import Loader from '../../components/LoaderSpinner';
 import Homepage from '../../pages/Homepage';
 import Error from '../../pages/Error';
 
-import { Context } from '../../Context/ProductsContext';
+import { Context as ProductContext } from '../../Context/ProductsContext';
+import { Context as VoucherContext } from '../../Context/VouchersContext';
 
 import { Grid } from './styles';
 
 const DefaultLayout: React.FC = () => {
-  const { loadingProd, errorProd } = useContext(Context);
+  const { loadingProd, errorProd } = useContext(ProductContext);
+  const { loadingVouc, errorVouc } = useContext(VoucherContext);
 
   function Content() {
-    if (errorProd) {
+    if (errorProd || errorVouc) {
       return <Error />;
     }
 
@@ -26,7 +28,7 @@ const DefaultLayout: React.FC = () => {
   return (
     <Grid>
       <Header />
-      {loadingProd ? <Loader /> : <Content />}
+      {loadingProd || loadingVouc ? <Loader /> : <Content />}
 
       <Footer />
       <ReactTooltip place="top" type="dark" effect="solid" />
