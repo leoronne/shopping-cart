@@ -15,20 +15,17 @@ export default createGlobalStyle`
     height: 100%;
     scroll-behavior: smooth;
   }
-
-  *, button, input {
-    border: 0;
-    outline: 0;
-    font-family: 'Poppins', 'Roboto', sans-serif;
-  }
   
   :root {
+    --font-family-base: 'Poppins', 'Roboto', sans-serif;
     --primary: #333333;
     --secondary: #d8d8d8;
     --terciary: #efefef;
     --quaternary: #292b2f;
     --quinary: #999999;
     --senary: #828386;
+
+    --background: #f5f6fb;
     
     --white: #fff;
     --gray: #3b3b3b;
@@ -49,6 +46,12 @@ export default createGlobalStyle`
     --product-row-height: 80px;
     --border-radius: 8px;
     --padding-low: 10px;
+  }
+
+  *, button, input {
+    border: 0;
+    outline: 0;
+    font-family: var(--font-family-base);
   }
 
   input {
