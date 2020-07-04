@@ -1,8 +1,9 @@
 {
   "name": "shopping-cart-challenge",
   "version": "1.0.0",
-  "description": "shopping-cart-challenge",
+  "description": "Codeminer42 Frontend Developer Challenge - Shopping Cart",
   "repository": "https://github.com/leoronne/shopping-cart-challenge",
+  "private": true,
   "author": "Leonardo Ronne",
   "license": "MIT",
   "dependencies": {
