@@ -6,7 +6,7 @@ import styled from 'styled-components';
 
 export const Grid = styled.div`
   display: grid;
-  grid-template-rows: 60px auto 60px;
+  grid-template-rows: var(--nav-size) auto var(--footer-size);
   grid-template-areas:
     'HD'
     'MC'

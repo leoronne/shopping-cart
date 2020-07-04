@@ -25,7 +25,7 @@ export default createGlobalStyle`
   :root {
     --primary: #333333;
     --secondary: #d8d8d8;
-    --tertiary: #efefef;
+    --terciary: #efefef;
     --quaternary: #292b2f;
     --quinary: #393d42;
     --senary: #828386;
@@ -40,6 +40,9 @@ export default createGlobalStyle`
     --transition-slow: 0.4ms;
     --filter-transition: filter var(--transition-slow) ease;
     --hover-effect: brightness(1.5);
+    --box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.3);
+    --nav-size: 60px;
+    --footer-size: 60px;
   }
 
   .text--center {
