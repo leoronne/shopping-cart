@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactTooltip from 'react-tooltip';
 
 import { Container, GithubIcon } from './styles';
 
@@ -12,7 +11,6 @@ const Footer: React.FC = () => {
           <GithubIcon />
         </a>
       </p>
-      <ReactTooltip place="top" type="dark" effect="solid" />
     </Container>
   );
 };
