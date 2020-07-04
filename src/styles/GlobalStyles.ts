@@ -2,6 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
   
   *{
     margin: 0;
@@ -18,16 +19,17 @@ export default createGlobalStyle`
   *, button, input {
     border: 0;
     outline: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Poppins', 'Roboto', sans-serif;
   }
   
   :root {
-    --primary: #36393f;
-    --secondary: #2f3136;
-    --tertiary: rgb(32,34,37);
+    --primary: #333333;
+    --secondary: #d8d8d8;
+    --tertiary: #efefef;
     --quaternary: #292b2f;
     --quinary: #393d42;
     --senary: #828386;
+    --background: #ffffff;
     
     --white: #fff;
     --gray: #8a8c90;
@@ -35,6 +37,13 @@ export default createGlobalStyle`
     --notification: #f84a4b;
     --link: #5d80d6;
     --ifm-scrollbar-hover: #555;
+    --transition-slow: 0.4ms;
+    --filter-transition: filter var(--transition-slow) ease;
+    --hover-effect: brightness(1.5);
+  }
+
+  .text--center {
+    text-align: center;
   }
 
 `;
