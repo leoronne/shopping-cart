@@ -60,6 +60,11 @@ export default createGlobalStyle`
     transition: 0.9s ease !important;
     border: 1px solid transparent !important;
   }
+  
+  input:disabled {
+    background: var(--light-gray);
+
+  }
 
   input:focus {
     outline: none !important;
