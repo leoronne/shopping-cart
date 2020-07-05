@@ -4,7 +4,7 @@ import { Minus, Plus } from 'styled-icons/evaicons-solid';
 
 import { ProductItemProps, BuyButtonProps, CartProps } from '.';
 
-import noicon from '~assets/svg/noicon.svg';
+import noicon from '../../assets/svg/noicon.svg';
 
 export const Container = styled.div`
   grid-area: MC;

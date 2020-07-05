@@ -28,7 +28,7 @@ const DefaultLayout: React.FC = () => {
   return (
     <Grid>
       <Header />
-      {loadingProd || loadingVouc ? <Loader /> : <Content />}
+      {loadingProd || loadingVouc ? <Loader /> : <Content data-testid="main-content"/>}
 
       <Footer />
       <ReactTooltip place="top" type="dark" effect="solid" />

@@ -19,7 +19,7 @@ interface ContextProps {
 
 const Context = createContext<Partial<ContextProps>>({});
 
-const VouchersProvider: React.FC = ({ children }) => {
+const VouchersProvider: React.FC<ContextProps> = ({ children }) => {
   const [loadingVouc, setLoadingVouc] = useState(false);
   const [errorVouc, setErrorVouc] = useState(false);
   const [vouchers, setVouchers] = useState([]);
@@ -38,6 +38,12 @@ const VouchersProvider: React.FC = ({ children }) => {
         setLoadingVouc(false);
       }
     }
+    if (process.env.NODE_ENV === 'test')
+      return setVouchers([
+        { id: 1, code: '#30OFF', type: 'percentual', amount: 30.0 },
+        { id: 2, code: '#100DOLLARS', type: 'fixed', amount: 100.0 },
+        { id: 3, code: '#SHIPIT', type: 'shipping', amount: 0, minValue: 300.5 },
+      ]);
     loadVouchers();
   }, []);
 
