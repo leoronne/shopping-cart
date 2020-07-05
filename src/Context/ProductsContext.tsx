@@ -21,6 +21,7 @@ interface ContextProps {
   loadingProd?: boolean;
   errorProd?: boolean;
   products?: Array<ProductsProps>;
+  setCartItems?: Function;
   cartItems?: Array<CartItemsProps>;
   setProducts?: Function;
   addProducts?: Function;
@@ -101,15 +102,16 @@ const ProductsProvider: React.FC = ({ children }) => {
     const prod = products.find((product) => product.id === id);
     const cart = cartItems.find((item) => item.id === id);
 
-    if (cart.available === 0) {
+    if (cart.available === 0 || (cart.available - 1) === 0) {
       const updatedCart = cartItems.filter((item) => item.id !== id);
       updatedCart.sort((a, b) => (a.id > b.id ? 1 : -1));
       setCartItems(updatedCart ? updatedCart : []);
     } else {
-      updateProductQuant(id, prod, 'remove');
       updateCartItems(id, cart, 'remove');
     }
+    updateProductQuant(id, prod, 'remove');
   }
+
 
   useEffect(() => {
     let shippingVal = 0;
@@ -169,6 +171,7 @@ const ProductsProvider: React.FC = ({ children }) => {
     <Context.Provider
       value={{
         products,
+        setCartItems,
         cartItems,
         loadingProd,
         setProducts,
