@@ -1,6 +1,8 @@
 import React, { useRef, useContext, useState } from 'react';
 import ReactTooltip from 'react-tooltip';
 
+import DotLoaderComp from '../../components/DotLoaderComp';
+
 import notify from '../../services/toast';
 import formatNumber from '../../utils/formatNumber';
 
@@ -51,6 +53,7 @@ export interface CartProps {
 const Homepage: React.FC = () => {
   const {
     products,
+    setCartItems,
     cartItems,
     addProducts,
     removeProducts,
@@ -67,16 +70,25 @@ const Homepage: React.FC = () => {
     setDiscountValue,
   } = useContext(ProductContext);
   const { vouchers } = useContext(VoucherContext);
-  const [voucherDescription, setVoucherDescription] = useState('');
   const [voucherCode, setVoucherCode] = useState('');
+  const [loadingOrder, setLoadingOrder] = useState(false);
   const productsRef = useRef() as React.MutableRefObject<HTMLDivElement>;
+
+  const handleSubmit = () => {
+    ReactTooltip.hide();
+    setLoadingOrder(true);
+    setTimeout(() => {
+      notify('Thank you! We received your order!', 'success');
+      setCartItems([]);
+      setLoadingOrder(false);
+    }, 1000);
+  };
 
   const removeDiscounts = () => {
     setDiscount({ type: null, value: 0, desc: '' });
     setDiscountValue(0);
     setVoucherApplied(false);
     setVoucherCode('');
-    setVoucherDescription('');
   };
 
   const handleDiscounts = () => {
@@ -197,13 +209,13 @@ const Homepage: React.FC = () => {
       </div>
     );
   }
-  // <ReactTooltip place="left" type="dark" effect="solid" />
+  
   return (
     <Container>
       <GridContainer>
         <ProductsContainer>
           <ProductsListcontainer>
-            {products.length === 0
+            {products && products.length === 0
               ? ''
               : products.map((product) => (
                   <ProductCard name={product.name} value={product.price} quant={product.available} id={product.id} key={product.id} />
@@ -256,11 +268,14 @@ const Homepage: React.FC = () => {
 
             <TotalValues>
               <ValueRow name="Subtotal" value={totalItemValue} isTotal={false} />
-              <ValueRow name="Shipping" value={shipping} isTotal={false} />
+              <ValueRow name="Shipping" value={cartItems.length === 0 ? 0 : shipping} isTotal={false} />
               <ValueRow name="Discount" value={discountValue} isTotal={false} />
-              <ValueRow name="Total" value={totalValue} isTotal={true} />
+              <ValueRow name="Total" value={cartItems.length === 0 ? 0 : totalValue} isTotal={true} />
             </TotalValues>
           </ShoppingCart>
+          <button type="button" disabled={cartItems.length === 0 || loadingOrder ? true : false} className="checkout-button" onClick={handleSubmit} data-tip="Submit Order">
+            <DotLoaderComp loading={loadingOrder} size={15} color="#fff" defaultText="CHECKOUT" />
+          </button>
         </ShoppingCartContainer>
       </GridContainer>
       <ReactTooltip place="bottom" type="dark" effect="solid" />

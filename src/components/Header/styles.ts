@@ -24,6 +24,10 @@ export const Container = styled.div`
     .header-right {
       margin-right: 0px;
     }
+
+    .header-title {
+      display: none;
+    }
   }
 
   @media (min-width: 480px) {
@@ -33,6 +37,10 @@ export const Container = styled.div`
 
     .header-right {
       margin-right: 15px;
+    }
+
+    .header-title {
+      display: flex;
     }
   }
 
@@ -46,6 +54,14 @@ export const Container = styled.div`
 
   .header-left {
     width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .header-title {
+    font-weight: 600;
+    color: var(--primary);
+    margin-left: 15px;
   }
 
   .header-right {
@@ -99,6 +115,7 @@ export const Container = styled.div`
   }
 
   a {
+    height: 100%;
     text-decoration: none;
     transition: var(--filter-transition);
   }

@@ -27,6 +27,7 @@ firebase.json
 .firebaserc
 
 *.psd
+.vscode
 
 package-lock.json
 
