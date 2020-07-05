@@ -39,7 +39,7 @@ const ProductsProvider: React.FC = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
   const [totalItemValue, setTotalItemValue] = useState(0);
   const [shipping, setShipping] = useState(0);
-  const [discount, setDiscount] = useState(0);
+  // const [discount, setDiscount] = useState(0);
   const [totalValue, setTotalValue] = useState(0);
 
   function updateProductQuant(id: number, prod: ProductsProps, operation: string) {
@@ -105,6 +105,7 @@ const ProductsProvider: React.FC = ({ children }) => {
     let total = 0;
     let kg = 0;
     if (cartItems.length > 0) {
+      // eslint-disable-next-line
       cartItems.map((item) => {
         total = total + item.price * item.available;
         kg = kg + item.available;
@@ -119,7 +120,7 @@ const ProductsProvider: React.FC = ({ children }) => {
 
     setShipping(shippingVal);
     setTotalItemValue(total);
-    setTotalValue(total + shippingVal - discount);
+    setTotalValue(total + shippingVal);
   }, [cartItems]);
 
   useEffect(() => {
