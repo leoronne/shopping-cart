@@ -12,4 +12,24 @@ export const Grid = styled.div`
     'MC'
     'FT';
   height: 100vh;
+  overflow-x: hidden;
+
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: var(--secondary);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--symbol);
+    border-radius: 4px;
+    transition: var(--transition-slow);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+    transition: var(--transition-slow);
+  }
 `;

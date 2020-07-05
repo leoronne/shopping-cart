@@ -14,10 +14,17 @@ const Header: React.FC = () => {
           <a href="/">
             <img src={logo} alt="Shooping Cart Challenge" className="logo" data-tip="Home Page" />
           </a>
+          <p className="header-title">Shopping</p>
         </div>
         <div className="header-right">
           <li className="nav-profile">
-            <a href="https://github.com/leoronne" className={'icon-profile-active'} target="_blank" rel="noopener noreferrer" data-tip={`Connected as ${userName}`}>
+            <a
+              href="https://github.com/leoronne"
+              className={'icon-profile-active'}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-tip={`Connected as ${userName}`}
+            >
               <img src={avatar} alt={userName} className="avatar-profile" />
               <span>{userName}</span>
             </a>

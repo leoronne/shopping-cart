@@ -29,6 +29,13 @@
   left: 50%;
   transform: translateX(-50%);
 }
+@media (max-width: 480px) {
+  .Toastify__toast-container--top-center {
+    margin: 5% !important;
+    width: 90% !important;
+    transform: translateX(0);
+  }
+}
 .Toastify__toast-container--top-right {
   top: 1em;
   right: 1em;

@@ -8,6 +8,7 @@ import noicon from '~assets/svg/noicon.svg';
 
 export const Container = styled.div`
   grid-area: MC;
+  max-width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,12 +24,22 @@ export const GridContainer = styled.div`
   grid-gap: 24px;
   width: 100%;
   height: 100%;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 1046px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;
 
 export const ProductsContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  max-width: 100%;
 `;
 
 export const ProductsListcontainer = styled.div`
@@ -39,9 +50,28 @@ export const ProductsListcontainer = styled.div`
   grid-gap: 20px;
   overflow-y: auto;
   overflow-x: hidden;
+  transition: 0.9s ease-in-out !important;
+
+  @media (max-width: 1046px) {
+    grid-template-columns: repeat(4, 1fr);
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: 320px;
+    scrollbar-width: thin;
+    transition: 0.9s ease-in-out !important;
+  }
+
+  @media (max-width: 670px) {
+    width: 350px;
+  }
+
+  @media (max-width: 390px) {
+    width: 200px;
+  }
 
   ::-webkit-scrollbar {
     width: 5px;
+    height: 5px;
   }
 
   ::-webkit-scrollbar-track {
@@ -69,6 +99,11 @@ export const ProductsCardcontainer = styled.div<ProductItemProps>`
   border: 1px transparent solid;
   position: relative;
   transition: 0.9s ease-in-out !important;
+
+  @media (max-width: 1046px) {
+    width: 250px;
+    margin-left: 0;
+  }
 
   :hover {
     outline: none !important;
@@ -140,11 +175,11 @@ export const ShoppingCartContainer = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
+  flex-direction: column;
+  max-width: 100%;
 
   .checkout-button {
-    position: absolute;
-    bottom: 0;
-    margin-bottom: 40px;
+    margin-top: 20px;
     height: 50px;
     width: 350px;
     background-color: var(--primary);
@@ -158,7 +193,11 @@ export const ShoppingCartContainer = styled.div`
     background-color: var(--quinary);
   }
 
-
+  @media (max-width: 360px) {
+    .checkout-button {
+      width: 300px;
+    }
+  }
 `;
 
 export const ShoppingCart = styled.div`
@@ -167,6 +206,10 @@ export const ShoppingCart = styled.div`
   background-color: var(--secondary);
   border-radius: 10px;
   position: relative;
+
+  @media (max-width: 360px) {
+    width: 300px;
+  }
 
   .title {
     font-weight: 700;
@@ -345,6 +388,12 @@ export const DiscountCode = styled.div`
   input {
     width: 200px;
     height: 100%;
+  }
+
+  @media (max-width: 360px) {
+    input {
+      width: 150px;
+    }
   }
 
   input:disabled {
