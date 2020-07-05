@@ -209,7 +209,7 @@ const Homepage: React.FC = () => {
       </div>
     );
   }
-  // <ReactTooltip place="left" type="dark" effect="solid" />
+  
   return (
     <Container>
       <GridContainer>
