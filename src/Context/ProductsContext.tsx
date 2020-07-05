@@ -41,7 +41,7 @@ interface ContextProps {
 
 const Context = createContext<Partial<ContextProps>>({});
 
-const ProductsProvider: React.FC = ({ children }) => {
+const ProductsProvider: React.FC<ContextProps> = ({ children }) => {
   const [loadingProd, setLoadingProd] = useState(false);
   const [errorProd, setErrorProd] = useState(false);
   const [products, setProducts] = useState([]);
@@ -102,7 +102,7 @@ const ProductsProvider: React.FC = ({ children }) => {
     const prod = products.find((product) => product.id === id);
     const cart = cartItems.find((item) => item.id === id);
 
-    if (cart.available === 0 || (cart.available - 1) === 0) {
+    if (cart.available === 0 || cart.available - 1 === 0) {
       const updatedCart = cartItems.filter((item) => item.id !== id);
       updatedCart.sort((a, b) => (a.id > b.id ? 1 : -1));
       setCartItems(updatedCart ? updatedCart : []);
@@ -111,7 +111,6 @@ const ProductsProvider: React.FC = ({ children }) => {
     }
     updateProductQuant(id, prod, 'remove');
   }
-
 
   useEffect(() => {
     let shippingVal = 0;
@@ -164,6 +163,13 @@ const ProductsProvider: React.FC = ({ children }) => {
         setLoadingProd(false);
       }
     }
+    if (process.env.NODE_ENV === 'test')
+      return setProducts([
+        { id: 1, name: 'Banana', price: 10.0, available: 10 },
+        { id: 2, name: 'Apple', price: 20.0, available: 15 },
+        { id: 3, name: 'Orange', price: 30.0, available: 8 },
+        { id: 4, name: 'Mango', price: 15.0, available: 20 },
+      ]);
     loadProducts();
   }, []);
 

@@ -9,11 +9,11 @@ import formatNumber from '../../utils/formatNumber';
 import { Context as ProductContext } from '../../Context/ProductsContext';
 import { Context as VoucherContext } from '../../Context/VouchersContext';
 
-import banana from '~assets/svg/banana.svg';
-import apple from '~assets/svg/apple.svg';
-import mango from '~assets/svg/mango.svg';
-import orange from '~assets/svg/orange.svg';
-import noicon from '~assets/svg/noicon.svg';
+import banana from '../../assets/svg/banana.svg';
+import apple from '../../assets/svg/apple.svg';
+import mango from '../../assets/svg/mango.svg';
+import orange from '../../assets/svg/orange.svg';
+import noicon from '../../assets/svg/noicon.svg';
 
 import {
   Container,
@@ -78,7 +78,7 @@ const Homepage: React.FC = () => {
     ReactTooltip.hide();
     setLoadingOrder(true);
     setTimeout(() => {
-      notify('Thank you! We received your order!', 'success');
+      notify('Thank you, we received your order!', 'success');
       setCartItems([]);
       setLoadingOrder(false);
     }, 1000);
@@ -153,6 +153,7 @@ const Homepage: React.FC = () => {
           }}
           disabled={props.quant > 0 ? false : true}
           data-tip={props.quant > 0 ? 'Add item to cart' : `There is no more of this item on stock`}
+          data-testid={props.name}
         >
           BUY
         </BuyButton>
@@ -162,7 +163,7 @@ const Homepage: React.FC = () => {
 
   function ProductRow(props: { name: string; value: number; quant: number; id: number }) {
     return (
-      <ProductRowContent>
+      <ProductRowContent data-testid={`cart-${props.name}`}>
         <CartProductIcon>
           <ProductIcon icon={returnIcon(props.name)} />
         </CartProductIcon>
@@ -172,7 +173,7 @@ const Homepage: React.FC = () => {
           </div>
           <div className="product-qnt-values">
             <span>Quantity: {props.quant}</span>
-            <span>{formatNumber(props.value * props.quant)}</span>
+            <span data-testid={`cart-${props.name}-value`}>{formatNumber(props.value * props.quant)}</span>
           </div>
         </div>
         <PlusMinusContainer>
@@ -204,18 +205,20 @@ const Homepage: React.FC = () => {
           ) : (
             ''
           )}
-          <p className={isDiscount ? 'discount' : ''}>{formatNumber(props.value)}</p>
+          <p className={isDiscount ? 'discount' : props.name} data-testid={props.name}>
+            {formatNumber(props.value)}
+          </p>
         </RowValues>
       </div>
     );
   }
-  
+
   return (
-    <Container>
+    <Container data-testid="product-cointainer">
       <GridContainer>
         <ProductsContainer>
           <ProductsListcontainer>
-            {products && products.length === 0
+            {products.length === 0
               ? ''
               : products.map((product) => (
                   <ProductCard name={product.name} value={product.price} quant={product.available} id={product.id} key={product.id} />
@@ -273,7 +276,13 @@ const Homepage: React.FC = () => {
               <ValueRow name="Total" value={cartItems.length === 0 ? 0 : totalValue} isTotal={true} />
             </TotalValues>
           </ShoppingCart>
-          <button type="button" disabled={cartItems.length === 0 || loadingOrder ? true : false} className="checkout-button" onClick={handleSubmit} data-tip="Submit Order">
+          <button
+            type="button"
+            disabled={cartItems.length === 0 || loadingOrder ? true : false}
+            className="checkout-button"
+            onClick={handleSubmit}
+            data-tip="Submit Order"
+          >
             <DotLoaderComp loading={loadingOrder} size={15} color="#fff" defaultText="CHECKOUT" />
           </button>
         </ShoppingCartContainer>

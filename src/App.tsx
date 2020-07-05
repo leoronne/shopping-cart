@@ -7,7 +7,7 @@ import GlobalStyles from './styles/GlobalStyles';
 import { ProductsProvider } from './Context/ProductsContext';
 import { VouchersProvider } from './Context/VouchersContext';
 
-import '~/styles/ReactToastify.css';
+import './styles/ReactToastify.css';
 
 function App() {
   return (

@@ -5,7 +5,7 @@ import { Container } from './styles';
 
 const Loader: React.FC = () => {
   return (
-    <Container>
+    <Container className="loader-container">
       <BeatLoader
         css={`
           display: block;

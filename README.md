@@ -39,6 +39,7 @@ You can install the application using `npm install` or `yarn install` on the roo
 
 To start the application interface just run `npm start` or `yarn start` on the root dir.
 
+<strong>Note: you need to create a .env file on the root directory based on the [example file](https://github.com/leoronne/shopping-cart-challenge/blob/master/.env.example).
 
 <br>
 
