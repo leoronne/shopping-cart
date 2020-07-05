@@ -21,6 +21,10 @@ This repo contains a challenge for a Frontend Developer position at Codeminer42,
 
 <br>
 
+Deployed [here](https://shopping-cart-challenge-front.web.app/) and [here](https://shoppint-cart-challenge.netlify.app/).
+
+<br>
+
 ## Techs :rocket:
 
 - [x] [ReactJS](https://reactjs.org);
@@ -38,6 +42,8 @@ You can install the application using `npm install` or `yarn install` on the roo
 ## Test :heavy_check_mark:
 
 To start the application interface just run `npm start` or `yarn start` on the root dir.
+
+<br>
 
 <strong>Note: you need to create a .env file on the root directory based on the [example file](https://github.com/leoronne/shopping-cart-challenge/blob/master/.env.example).
 

@@ -182,10 +182,11 @@ const Homepage: React.FC = () => {
               onClick={() => {
                 if (props.quant > 0) addProducts(props.id);
               }}
+              data-tip="Add more of this item to the cart"
             />
           </span>
           <span>
-            <MinusIcon disabled={false} onClick={() => removeProducts(props.id)} />
+            <MinusIcon disabled={false} onClick={() => removeProducts(props.id)} data-tip="Remove this item from the cart" />
           </span>
         </PlusMinusContainer>
       </ProductRowContent>
