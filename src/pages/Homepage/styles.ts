@@ -2,6 +2,10 @@ import styled from 'styled-components';
 
 import { Minus, Plus } from 'styled-icons/evaicons-solid';
 
+import { ProductItemProps, BuyButtonProps, CartProps } from '.';
+
+import noicon from '~assets/svg/noicon.svg';
+
 export const Container = styled.div`
   grid-area: MC;
   display: flex;
@@ -56,19 +60,29 @@ export const ProductsListcontainer = styled.div`
   }
 `;
 
-export const ProductsCardcontainer = styled.div`
+export const ProductsCardcontainer = styled.div<ProductItemProps>`
   width: 90%;
   margin-left: 5%;
   height: 300px;
   background: var(--secondary);
   border-radius: var(--border-radius);
+  border: 1px transparent solid;
   position: relative;
+  transition: 0.9s ease-in-out !important;
 
-  .product-icon {
-    background: var(--light-gray);
+  :hover {
+    outline: none !important;
+    border: ${(props) => (props.quant > 0 ? `1px solid var(--primary) !important` : `1px solid red !important`)};
+    transition: 0.9s ease-in-out !important;
+    box-shadow: ${(props) => (props.quant > 0 ? `0px 0px 1px var(--primary)` : `0px 0px 1px red`)};
+  }
+
+  .cart-product-icon {
+    background-color: var(--light-gray);
     height: 150px;
     border-top-left-radius: var(--border-radius);
     border-top-right-radius: var(--border-radius);
+    position: relative;
   }
 `;
 
@@ -94,7 +108,7 @@ export const ProductsCardValues = styled.div`
   font-size: 15px;
 `;
 
-export const BuyButton = styled.div`
+export const BuyButton = styled.div<BuyButtonProps>`
   height: 40px;
   width: 100%;
   position: absolute;
@@ -102,21 +116,23 @@ export const BuyButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--primary);
+  background: ${(props) => (props.disabled ? 'var(--quinary)' : 'var(--primary)')};
   color: var(--white);
   font-size: 14px;
   font-weight: 600;
   border-bottom-left-radius: var(--border-radius);
   border-bottom-right-radius: var(--border-radius);
-  cursor: pointer;
+  cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
   transition: var(--transition-slow);
-
+  ${(props) =>
+    !props.disabled
+      ? `
   :hover {
     filter: var(--hover-effect);
     transition: var(--transition-slow);
-    transform: translateY(-1px);
-    transform: translateX(1px);
   }
+  `
+      : ''}
 `;
 
 export const ShoppingCartContainer = styled.div`
@@ -220,12 +236,26 @@ export const ProductRowContent = styled.div`
   }
 `;
 
-export const ProductIcon = styled.div`
+export const CartProductIcon = styled.div`
   position: absolute;
   height: 100%;
   width: var(--product-row-height);
   left: 0;
-  background: var(--light-gray);
+  background-color: var(--light-gray);
+  border-top-left-radius: var(--border-radius);
+  border-bottom-left-radius: var(--border-radius);
+`;
+
+export const ProductIcon = styled.div<CartProps>`
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  background-image: ${(props) => (props.icon ? `url(${props.icon})` : `url(${noicon})`)};
+  background-size: 30%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: var(--light-gray);
   border-top-left-radius: var(--border-radius);
   border-bottom-left-radius: var(--border-radius);
 `;
