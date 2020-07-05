@@ -1,6 +1,14 @@
+<p align="center">
+  <img src="/src/assets/img/logo.png" width="300px"/>
+</p>
+
 <h1 align="center">
   Shopping Cart Challenge
 </h1>
+
+<p align="center">
+  <img src="/src/assets/img/banner.png"/>
+</p>
 
 <br>
 
