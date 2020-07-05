@@ -72,9 +72,9 @@ export const ProductsCardcontainer = styled.div<ProductItemProps>`
 
   :hover {
     outline: none !important;
-    border: ${(props) => (props.quant > 0 ? `1px solid var(--primary) !important` : `1px solid red !important`)};
+    border: ${(props) => (props.quant && props.quant > 0 ? `1px solid var(--primary) !important` : `1px solid red !important`)};
     transition: 0.9s ease-in-out !important;
-    box-shadow: ${(props) => (props.quant > 0 ? `0px 0px 1px var(--primary)` : `0px 0px 1px red`)};
+    box-shadow: ${(props) => (props.quant && props.quant > 0 ? `0px 0px 1px var(--primary)` : `0px 0px 1px red`)};
   }
 
   .cart-product-icon {
@@ -139,6 +139,26 @@ export const ShoppingCartContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+
+  .checkout-button {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 40px;
+    height: 50px;
+    width: 350px;
+    background-color: var(--primary);
+    color: var(--white);
+    border-radius: var(--border-radius);
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .checkout-button:disabled {
+    cursor: not-allowed;
+    background-color: var(--quinary);
+  }
+
+
 `;
 
 export const ShoppingCart = styled.div`

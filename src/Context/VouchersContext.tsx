@@ -19,7 +19,7 @@ interface ContextProps {
 
 const Context = createContext<Partial<ContextProps>>({});
 
-const VouchersProvider = ({ children }) => {
+const VouchersProvider: React.FC = ({ children }) => {
   const [loadingVouc, setLoadingVouc] = useState(false);
   const [errorVouc, setErrorVouc] = useState(false);
   const [vouchers, setVouchers] = useState([]);
