@@ -28,6 +28,14 @@ interface ContextProps {
   totalItemValue?: number;
   shipping?: number;
   totalValue?: number;
+  discount?: { type: string; value: number; desc: string };
+  setDiscount?: Function;
+  voucherApplied?: boolean;
+  setVoucherApplied?: Function;
+  voucherCode2?: string;
+  setVoucherCode2?: Function;
+  discountValue?: number;
+  setDiscountValue?: Function;
 }
 
 const Context = createContext<Partial<ContextProps>>({});
@@ -39,8 +47,11 @@ const ProductsProvider: React.FC = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
   const [totalItemValue, setTotalItemValue] = useState(0);
   const [shipping, setShipping] = useState(0);
-  // const [discount, setDiscount] = useState(0);
+  const [discount, setDiscount] = useState({ type: null, value: 0, desc: null });
+  const [discountValue, setDiscountValue] = useState(0);
   const [totalValue, setTotalValue] = useState(0);
+  const [voucherApplied, setVoucherApplied] = useState(false);
+  const [voucherCode2, setVoucherCode2] = useState('');
 
   function updateProductQuant(id: number, prod: ProductsProps, operation: string) {
     if (prod.available > 0 && operation === 'add') prod.available = prod.available - 1;
@@ -104,6 +115,7 @@ const ProductsProvider: React.FC = ({ children }) => {
     let shippingVal = 0;
     let total = 0;
     let kg = 0;
+    let discountVal = 0;
     if (cartItems.length > 0) {
       // eslint-disable-next-line
       cartItems.map((item) => {
@@ -118,10 +130,23 @@ const ProductsProvider: React.FC = ({ children }) => {
       shippingVal = Math.ceil(fee) * 7;
     }
 
+    if (discount.type === 'shipping' && total > discount.value) {
+      discountVal = shippingVal;
+    }
+
+    if (discount.type === 'percentual') {
+      discountVal = total * (discount.value / 100);
+    }
+
+    if (discount.type === 'fixed') {
+      discountVal = discount.value;
+    }
     setShipping(shippingVal);
     setTotalItemValue(total);
-    setTotalValue(total + shippingVal);
-  }, [cartItems]);
+    setDiscountValue(discountVal);
+    const totalVal = total + shippingVal - discountVal;
+    setTotalValue(totalVal < 0 ? 0 : totalVal);
+  }, [cartItems, discount]);
 
   useEffect(() => {
     async function loadProducts() {
@@ -153,6 +178,14 @@ const ProductsProvider: React.FC = ({ children }) => {
         totalItemValue,
         shipping,
         totalValue,
+        discount,
+        setDiscount,
+        voucherApplied,
+        setVoucherApplied,
+        voucherCode2,
+        setVoucherCode2,
+        discountValue,
+        setDiscountValue,
       }}
     >
       {children}

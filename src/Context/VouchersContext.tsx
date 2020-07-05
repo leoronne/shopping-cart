@@ -3,7 +3,21 @@ import React, { createContext, useEffect, useState } from 'react';
 import api from '../services/api';
 import notify from '../services/toast';
 
-const Context = createContext();
+interface VouchersProps {
+  id?: number;
+  code?: string;
+  type?: string;
+  amount?: number;
+  minValue?: number;
+}
+
+interface ContextProps {
+  loadingVouc?: boolean;
+  errorVouc?: boolean;
+  vouchers?: Array<VouchersProps>;
+}
+
+const Context = createContext<Partial<ContextProps>>({});
 
 const VouchersProvider = ({ children }) => {
   const [loadingVouc, setLoadingVouc] = useState(false);
@@ -32,7 +46,6 @@ const VouchersProvider = ({ children }) => {
       value={{
         vouchers,
         loadingVouc,
-        setVouchers,
         errorVouc,
       }}
     >

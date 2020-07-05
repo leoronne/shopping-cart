@@ -1,9 +1,11 @@
-import React, { useRef, useContext } from 'react';
+import React, { useRef, useContext, useState } from 'react';
 import ReactTooltip from 'react-tooltip';
 
+import notify from '../../services/toast';
 import formatNumber from '../../utils/formatNumber';
 
 import { Context as ProductContext } from '../../Context/ProductsContext';
+import { Context as VoucherContext } from '../../Context/VouchersContext';
 
 import banana from '~assets/svg/banana.svg';
 import apple from '~assets/svg/apple.svg';
@@ -47,8 +49,59 @@ export interface CartProps {
 }
 
 const Homepage: React.FC = () => {
-  const { products, cartItems, addProducts, removeProducts, totalItemValue, shipping, totalValue } = useContext(ProductContext);
+  const {
+    products,
+    cartItems,
+    addProducts,
+    removeProducts,
+    totalItemValue,
+    shipping,
+    totalValue,
+    discount,
+    setDiscount,
+    voucherApplied,
+    setVoucherApplied,
+    voucherCode2,
+    setVoucherCode2,
+    discountValue,
+    setDiscountValue,
+  } = useContext(ProductContext);
+  const { vouchers } = useContext(VoucherContext);
+  const [voucherDescription, setVoucherDescription] = useState('');
+  const [voucherCode, setVoucherCode] = useState('');
   const productsRef = useRef() as React.MutableRefObject<HTMLDivElement>;
+
+  const removeDiscounts = () => {
+    setDiscount({ type: null, value: 0, desc: '' });
+    setDiscountValue(0);
+    setVoucherApplied(false);
+    setVoucherCode('');
+    setVoucherDescription('');
+  };
+
+  const handleDiscounts = () => {
+    ReactTooltip.hide();
+    if (voucherCode) {
+      if (voucherApplied) notify('Sorry, you have already applied a voucher', 'error');
+      const cupom = vouchers.find((voucher) => voucher.code === voucherCode);
+
+      if (!cupom) {
+        setVoucherCode('');
+        setDiscount({ type: null, value: 0, desc: '' });
+        setDiscountValue(0);
+        return notify('Sorry, you entered an invalid voucher', 'error');
+      }
+      setDiscount({
+        type: cupom.type,
+        value: cupom.type === 'shipping' ? cupom.minValue : cupom.amount,
+        desc: `The Voucher qualifies for a ${cupom.type} discount`,
+      });
+
+      notify('Voucher Applied!', 'success');
+      setVoucherApplied(true);
+      setVoucherCode2(voucherCode);
+    }
+  };
 
   function returnIcon(name: string) {
     switch (name) {
@@ -119,7 +172,7 @@ const Homepage: React.FC = () => {
             />
           </span>
           <span>
-            <MinusIcon onClick={() => removeProducts(props.id)} />
+            <MinusIcon disabled={false} onClick={() => removeProducts(props.id)} />
           </span>
         </PlusMinusContainer>
       </ProductRowContent>
@@ -127,15 +180,24 @@ const Homepage: React.FC = () => {
   }
 
   function ValueRow(props: { name: string; value: number; isTotal: Boolean }) {
+    const isDiscount = props.name === 'Discount' && discountValue > 0;
     return (
-      <div className={`cart-row ${props.isTotal ? ' total' : ''}`}>
+      <div className={`cart-row ${props.isTotal ? ' total' : ''}`} data-tip={props.name === 'Discount' ? discount.desc : null}>
         <p>{props.name}</p>
         <RowValues>
-          <p>{formatNumber(props.value)}</p>
+          {isDiscount ? (
+            <div className="minus-icon">
+              <MinusIcon disabled={true} />
+            </div>
+          ) : (
+            ''
+          )}
+          <p className={isDiscount ? 'discount' : ''}>{formatNumber(props.value)}</p>
         </RowValues>
       </div>
     );
   }
+  // <ReactTooltip place="left" type="dark" effect="solid" />
   return (
     <Container>
       <GridContainer>
@@ -166,23 +228,42 @@ const Homepage: React.FC = () => {
               </ProductList>
 
               <DiscountCode>
-                <input type="text" value="" placeholder="Discount code" />
-                <button type="button" data-tip="Apply Voucher">
-                  APPLY
-                </button>
+                {voucherApplied ? (
+                  <>
+                    <input type="text" value={voucherCode2} placeholder="Voucher Code" name="voucher" disabled={true} />
+                    <button type="button" data-tip="Remove Voucher" onClick={removeDiscounts}>
+                      REMOVE
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    <input
+                      type="text"
+                      value={voucherCode}
+                      placeholder="Voucher Code"
+                      name="voucher"
+                      onChange={(e) => {
+                        setVoucherCode(e.target.value);
+                      }}
+                    />
+                    <button type="button" data-tip="Apply Voucher" onClick={handleDiscounts} disabled={!voucherCode ? true : false}>
+                      APPLY
+                    </button>
+                  </>
+                )}
               </DiscountCode>
             </div>
 
             <TotalValues>
               <ValueRow name="Subtotal" value={totalItemValue} isTotal={false} />
               <ValueRow name="Shipping" value={shipping} isTotal={false} />
-              <ValueRow name="Discount" value={1} isTotal={false} />
+              <ValueRow name="Discount" value={discountValue} isTotal={false} />
               <ValueRow name="Total" value={totalValue} isTotal={true} />
             </TotalValues>
           </ShoppingCart>
         </ShoppingCartContainer>
-        <ReactTooltip place="bottom" type="dark" effect="solid" />
       </GridContainer>
+      <ReactTooltip place="bottom" type="dark" effect="solid" />
     </Container>
   );
 };

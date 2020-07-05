@@ -280,11 +280,11 @@ export const PlusMinusContainer = styled.div`
   }
 `;
 
-export const MinusIcon = styled(Minus)`
+export const MinusIcon = styled(Minus)<BuyButtonProps>`
   width: 15px;
   height: 15px;
-  color: var(--primary);
-  cursor: pointer;
+  color: ${(props) => (props.disabled ? `red` : `var(--primary)`)};
+  cursor: ${(props) => (props.disabled ? `text` : `pointer`)};
   transition: var(--transition-slow);
 
   :hover {
@@ -327,6 +327,10 @@ export const DiscountCode = styled.div`
     height: 100%;
   }
 
+  input:disabled {
+    font-weight: 600;
+  }
+
   button {
     width: 110px;
     height: 100%;
@@ -335,6 +339,11 @@ export const DiscountCode = styled.div`
     color: var(--white);
     font-weight: 600;
     cursor: pointer;
+  }
+
+  button:disabled {
+    cursor: not-allowed;
+    background-color: var(--quinary);
   }
 `;
 
@@ -364,4 +373,22 @@ export const RowValues = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
+
+  .discount {
+    font-weight: 600;
+    color: red;
+  }
+
+  .minus-icon {
+    height: 100%;
+    position: absolute;
+    width: 20px;
+    left: 0;
+    margin-left: -25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
 `;
