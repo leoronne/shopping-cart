@@ -67,7 +67,6 @@ const Homepage: React.FC = () => {
     setDiscountValue,
   } = useContext(ProductContext);
   const { vouchers } = useContext(VoucherContext);
-  const [voucherDescription, setVoucherDescription] = useState('');
   const [voucherCode, setVoucherCode] = useState('');
   const productsRef = useRef() as React.MutableRefObject<HTMLDivElement>;
 
@@ -76,7 +75,6 @@ const Homepage: React.FC = () => {
     setDiscountValue(0);
     setVoucherApplied(false);
     setVoucherCode('');
-    setVoucherDescription('');
   };
 
   const handleDiscounts = () => {
