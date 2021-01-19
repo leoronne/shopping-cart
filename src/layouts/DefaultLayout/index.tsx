@@ -1,37 +1,35 @@
-import React, { useContext } from 'react';
-import ReactTooltip from 'react-tooltip';
+import React from 'react';
 
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
-import Loader from '../../components/LoaderSpinner';
+import { Header, Footer, LoaderSpinner } from '../../components';
 
 import Homepage from '../../pages/Homepage';
 import Error from '../../pages/Error';
 
-import { Context as ProductContext } from '../../Context/ProductsContext';
-import { Context as VoucherContext } from '../../Context/VouchersContext';
+import { useVouchers, useProducts } from '../../hooks';
 
 import { Grid } from './styles';
 
 const DefaultLayout: React.FC = () => {
-  const { loadingProd, errorProd } = useContext(ProductContext);
-  const { loadingVouc, errorVouc } = useContext(VoucherContext);
+  const { loadingProd, errorProd } = useProducts();
+  const { loadingVouc, errorVouc } = useVouchers();
 
-  function Content() {
+  const Content: React.FC = () => {
     if (errorProd || errorVouc) {
       return <Error />;
     }
 
     return <Homepage />;
-  }
+  };
+
+  if (loadingProd || loadingVouc) return <LoaderSpinner />;
 
   return (
     <Grid>
       <Header />
-      {loadingProd || loadingVouc ? <Loader /> : <Content data-testid="main-content"/>}
+
+      <Content data-testid="main-content" />
 
       <Footer />
-      <ReactTooltip place="top" type="dark" effect="solid" />
     </Grid>
   );
 };

@@ -29,7 +29,7 @@ This repo contains a challenge for a Frontend Developer position at Codeminer42,
 
 <br>
 
-Deployed [here](https://shopping-cart-challenge-front.web.app/) and [here](https://shoppint-cart-challenge.netlify.app/).
+Deployed [here](https://shopping-cart-front.web.app/) and [here](https://shoppint-cart-challenge.netlify.app/).
 
 <br>
 
@@ -53,13 +53,13 @@ To start the application interface just run `npm start` or `yarn start` on the r
 
 <br>
 
-<strong>Note: you need to create a .env file on the root directory based on the [example file](https://github.com/leoronne/shopping-cart-challenge/blob/master/.env.example).
+<strong>Note: you need to create a .env file on the root directory based on the [example file](https://github.com/leoronne/shopping-cart/blob/master/.env.example).
 
 <br>
 
 ## Contributing 🤔
 
-Please read [CONTRIBUTING](https://github.com/leoronne/shopping-cart-challenge/blob/master/CONTRIBUTING.md) for details on code of conduct, and the process for submitting pull requests to the project.
+Please read [CONTRIBUTING](https://github.com/leoronne/shopping-cart/blob/master/CONTRIBUTING.md) for details on code of conduct, and the process for submitting pull requests to the project.
 
 <br>
 
@@ -67,7 +67,7 @@ Please read [CONTRIBUTING](https://github.com/leoronne/shopping-cart-challenge/b
 
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
 
-- **[MIT license](https://github.com/leoronne/shopping-cart-challenge/blob/master/LICENSE)**
+- **[MIT license](https://github.com/leoronne/shopping-cart/blob/master/LICENSE)**
 - Copyright 2020 © <a href="https://github.com/leoronne" target="_blank">Leonardo Ronne</a>.
 
 ##

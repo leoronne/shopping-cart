@@ -6,17 +6,9 @@ const Footer: React.FC = () => {
   return (
     <Container data-testid="footer-cointainer">
       <p className="text--center">{`©${new Date().getFullYear()}. All Rights Reserved.`}</p>
-      <p>
-        <a
-          href="https://github.com/leoronne/shopping-cart-challenge"
-          target="_blank"
-          rel="noopener noreferrer"
-          data-tip="GitHub Project"
-          data-testid="footer-link"
-        >
-          <GithubIcon />
-        </a>
-      </p>
+      <a href="https://github.com/leoronne/shopping-cart" target="_blank" rel="noopener noreferrer">
+        <GithubIcon />
+      </a>
     </Container>
   );
 };
