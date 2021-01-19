@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="/src/assets/img/logo.png" width="300px"/>
+  <img src="/src/assets/img/transparentBanner.png" width="50%"/>
 </p>
 
 <h1 align="center">
@@ -16,6 +16,7 @@
   <a href="#project-star2">Project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#techs-rocket">Techs</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#installation-wrench">Installation</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#start-on">Start</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#test-heavy_check_mark">Test</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#contributing-">Contributing</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#license-memo">License</a>
@@ -25,11 +26,11 @@
 
 ## Project :star2:
 
-This repo contains a challenge for a Frontend Developer position at Codeminer42, based on the [guide](https://gist.github.com/sobrinho/2f8d633aab22e3ad6ffa0b9d19b5a131).
+This repo contains a challenge for a Front-end Developer position at Codeminer42, based on the [guide](https://gist.github.com/sobrinho/2f8d633aab22e3ad6ffa0b9d19b5a131).
 
 <br>
 
-Deployed [here](https://shopping-cart-front.web.app/) and [here](https://shoppint-cart-challenge.netlify.app/).
+Deployed [here](https://shopping-cart.frontend-challenge.ronne.dev).
 
 <br>
 
@@ -43,17 +44,25 @@ Deployed [here](https://shopping-cart-front.web.app/) and [here](https://shoppin
 
 ## Installation :wrench:
 
+First you need to clone the project using `git clone https://github.com/leoronne/shopping-cart.git`.
+
 You can install the application using `npm install` or `yarn install` on the root dir.
 
 <br>
 
-## Test :heavy_check_mark:
+## Start :on:
 
 To start the application interface just run `npm start` or `yarn start` on the root dir.
 
 <br>
 
 <strong>Note: you need to create a .env file on the root directory based on the [example file](https://github.com/leoronne/shopping-cart/blob/master/.env.example).
+
+<br>
+
+## Test :heavy_check_mark:
+
+To run the tests of this application, just run `npm run test:cover` or `yarn test:cover` on the client directory, it will generate a coverage report on the same dir.
 
 <br>
 
