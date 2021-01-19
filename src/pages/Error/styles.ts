@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-
 export const Container = styled.div`
   grid-area: MC;
   display: flex;
@@ -23,7 +22,7 @@ export const Container = styled.div`
     width: 20%;
     max-width: 140.25px;
   }
-  
+
 `;
 
 export const Title = styled.div`

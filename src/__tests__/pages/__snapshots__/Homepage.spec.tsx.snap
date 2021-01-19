@@ -1,0 +1,146 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Homepage should render 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-fKFyDc fCoja"
+    data-testid="product-cointainer"
+  >
+    <div
+      class="sc-bBXqnf gCbUiR"
+    >
+      <div
+        class="sc-iqHYGH gDIMJP"
+      >
+        <div
+          class="sc-crrsfI Wezfb"
+        />
+      </div>
+      <div
+        class="sc-dIUggk kofTMZ"
+      >
+        <div
+          class="sc-hHftDr fIpfqg"
+        >
+          <div
+            class="title"
+          >
+            <p>
+              Cart
+            </p>
+          </div>
+          <div
+            class="cart-container"
+          >
+            <div
+              class="sc-dmlrTW gukuJa"
+            />
+            <div
+              class="sc-kfzAmx dIygDd"
+            >
+              <form>
+                <input
+                  data-testid="voucher-input"
+                  name="voucher"
+                  placeholder="Voucher Code"
+                  type="text"
+                  value=""
+                />
+                <button
+                  data-testid="submit-voucher"
+                  disabled=""
+                  type="submit"
+                >
+                  APPLY
+                </button>
+              </form>
+            </div>
+          </div>
+          <div
+            class="sc-dQppl eJWKvx"
+          >
+            <div
+              class="cart-row "
+            >
+              <p>
+                Subtotal
+              </p>
+              <div
+                class="sc-bqyKva pvONl"
+              >
+                <p
+                  class="Subtotal"
+                  data-testid="Subtotal"
+                >
+                  USD 0.00
+                </p>
+              </div>
+            </div>
+            <div
+              class="cart-row "
+            >
+              <p>
+                Shipping
+              </p>
+              <div
+                class="sc-bqyKva pvONl"
+              >
+                <p
+                  class="Shipping"
+                  data-testid="Shipping"
+                >
+                  USD 0.00
+                </p>
+              </div>
+            </div>
+            <div
+              class="cart-row "
+            >
+              <p>
+                Discount
+              </p>
+              <div
+                class="sc-bqyKva pvONl"
+              >
+                <p
+                  class="Discount"
+                  data-testid="Discount"
+                >
+                  USD 0.00
+                </p>
+              </div>
+            </div>
+            <div
+              class="cart-row  total"
+            >
+              <p>
+                Total
+              </p>
+              <div
+                class="sc-bqyKva pvONl"
+              >
+                <p
+                  class="Total"
+                  data-testid="Total"
+                >
+                  USD 0.00
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button
+          class="checkout-button"
+          data-testid="submit-order"
+          disabled=""
+          type="button"
+        >
+          <span>
+            CHECKOUT
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

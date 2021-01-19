@@ -12,18 +12,18 @@ export const Container = styled.div`
   padding: 10px;
   line-height: 1.9;
 
+  font-size: 12px;
+
   p {
-    font-size: 12px;
     color: var(--quaternary);
   }
-  
+
   a {
     transition: var(--filter-transition);
-  }
-
-  a:hover {
-    text-decoration: none;
-    filter: var(--hover-effect);
+    &:hover {
+      text-decoration: none;
+      filter: var(--hover-effect);
+    }
   }
 `;
 

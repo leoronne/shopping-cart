@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header should render 1`] = `
+<DocumentFragment>
+  <header
+    class="sc-gsTCUz iQdzPN"
+  >
+    <div
+      class="sc-dlfnbm hDohQW"
+    >
+      <a
+        href="/"
+      >
+        <img
+          alt="Shooping Cart"
+          src="logo.png"
+        />
+      </a>
+      <p>
+        Shopping
+      </p>
+    </div>
+    <div
+      class="sc-hKgILt Jxcog"
+    >
+      <div
+        class="sc-eCssSg iChLvu"
+      >
+        <a
+          class="icon-profile-active"
+          href="https://github.com/leoronne"
+          rel="noopener noreferrer"
+          target="_blank"
+          title="Connected as Leonardo Ronne"
+        >
+          <img
+            alt="Leonardo Ronne"
+            class="avatar-profile"
+            src="avatar.jpg"
+          />
+          <span>
+            Leonardo Ronne
+          </span>
+        </a>
+      </div>
+    </div>
+  </header>
+</DocumentFragment>
+`;

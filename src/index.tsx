@@ -1,13 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+import { LoaderSpinner } from './components';
+
+import AppProvider from './hooks';
+
+import App from './App';
+
+const Application: React.FC = () => (
+  <React.Suspense fallback={<LoaderSpinner />}>
+    <React.StrictMode>
+      <AppProvider>
+        <App />
+      </AppProvider>
+    </React.StrictMode>
+  </React.Suspense>
 );
 
-serviceWorker.unregister();
+ReactDOM.render(<Application />, document.getElementById('root'));
+
+export default Application;

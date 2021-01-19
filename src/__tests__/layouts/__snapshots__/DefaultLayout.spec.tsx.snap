@@ -1,0 +1,396 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DefaultLayout should render 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-lmoMRL SzsbY"
+  >
+    <header
+      class="sc-gsTCUz iQdzPN"
+    >
+      <div
+        class="sc-dlfnbm hDohQW"
+      >
+        <a
+          href="/"
+        >
+          <img
+            alt="Shooping Cart"
+            src="logo.png"
+          />
+        </a>
+        <p>
+          Shopping
+        </p>
+      </div>
+      <div
+        class="sc-hKgILt Jxcog"
+      >
+        <div
+          class="sc-eCssSg iChLvu"
+        >
+          <a
+            class="icon-profile-active"
+            href="https://github.com/leoronne"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="Connected as Leonardo Ronne"
+          >
+            <img
+              alt="Leonardo Ronne"
+              class="avatar-profile"
+              src="avatar.jpg"
+            />
+            <span>
+              Leonardo Ronne
+            </span>
+          </a>
+        </div>
+      </div>
+    </header>
+    <div
+      class="sc-fKFyDc fCoja"
+      data-testid="product-cointainer"
+    >
+      <div
+        class="sc-bBXqnf gCbUiR"
+      >
+        <div
+          class="sc-iqHYGH gDIMJP"
+        >
+          <div
+            class="sc-crrsfI Wezfb"
+          >
+            <div
+              class="sc-fubCfw cmumGB"
+            >
+              <div
+                class="cart-product-icon"
+              >
+                <div
+                  class="sc-iBPRYJ TekgT"
+                />
+              </div>
+              <div
+                class="sc-pFZIQ bPRSYh"
+              >
+                <div
+                  class="text--center"
+                >
+                  <strong>
+                    Banana
+                  </strong>
+                </div>
+                <div
+                  class="sc-jrAGrp mFQtY"
+                >
+                  <span>
+                    USD 10.00
+                  </span>
+                  <br />
+                  <span
+                    data-testid="quantity-left-product-1"
+                  >
+                    10 left
+                  </span>
+                </div>
+              </div>
+              <button
+                class="sc-kEjbxe dlUofy"
+                data-testid="buy-button-product-1"
+                title="Add item to cart"
+                type="button"
+              >
+                BUY
+              </button>
+            </div>
+            <div
+              class="sc-fubCfw cmumGB"
+            >
+              <div
+                class="cart-product-icon"
+              >
+                <div
+                  class="sc-iBPRYJ dhfDOE"
+                />
+              </div>
+              <div
+                class="sc-pFZIQ bPRSYh"
+              >
+                <div
+                  class="text--center"
+                >
+                  <strong>
+                    Apple
+                  </strong>
+                </div>
+                <div
+                  class="sc-jrAGrp mFQtY"
+                >
+                  <span>
+                    USD 20.00
+                  </span>
+                  <br />
+                  <span
+                    data-testid="quantity-left-product-2"
+                  >
+                    15 left
+                  </span>
+                </div>
+              </div>
+              <button
+                class="sc-kEjbxe dlUofy"
+                data-testid="buy-button-product-2"
+                title="Add item to cart"
+                type="button"
+              >
+                BUY
+              </button>
+            </div>
+            <div
+              class="sc-fubCfw cmumGB"
+            >
+              <div
+                class="cart-product-icon"
+              >
+                <div
+                  class="sc-iBPRYJ buraQo"
+                />
+              </div>
+              <div
+                class="sc-pFZIQ bPRSYh"
+              >
+                <div
+                  class="text--center"
+                >
+                  <strong>
+                    Orange
+                  </strong>
+                </div>
+                <div
+                  class="sc-jrAGrp mFQtY"
+                >
+                  <span>
+                    USD 30.00
+                  </span>
+                  <br />
+                  <span
+                    data-testid="quantity-left-product-3"
+                  >
+                    8 left
+                  </span>
+                </div>
+              </div>
+              <button
+                class="sc-kEjbxe dlUofy"
+                data-testid="buy-button-product-3"
+                title="Add item to cart"
+                type="button"
+              >
+                BUY
+              </button>
+            </div>
+            <div
+              class="sc-fubCfw cmumGB"
+            >
+              <div
+                class="cart-product-icon"
+              >
+                <div
+                  class="sc-iBPRYJ bCNCZW"
+                />
+              </div>
+              <div
+                class="sc-pFZIQ bPRSYh"
+              >
+                <div
+                  class="text--center"
+                >
+                  <strong>
+                    Mango
+                  </strong>
+                </div>
+                <div
+                  class="sc-jrAGrp mFQtY"
+                >
+                  <span>
+                    USD 15.00
+                  </span>
+                  <br />
+                  <span
+                    data-testid="quantity-left-product-4"
+                  >
+                    20 left
+                  </span>
+                </div>
+              </div>
+              <button
+                class="sc-kEjbxe dlUofy"
+                data-testid="buy-button-product-4"
+                title="Add item to cart"
+                type="button"
+              >
+                BUY
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="sc-dIUggk kofTMZ"
+        >
+          <div
+            class="sc-hHftDr fIpfqg"
+          >
+            <div
+              class="title"
+            >
+              <p>
+                Cart
+              </p>
+            </div>
+            <div
+              class="cart-container"
+            >
+              <div
+                class="sc-dmlrTW gukuJa"
+              />
+              <div
+                class="sc-kfzAmx dIygDd"
+              >
+                <form>
+                  <input
+                    data-testid="voucher-input"
+                    name="voucher"
+                    placeholder="Voucher Code"
+                    type="text"
+                    value=""
+                  />
+                  <button
+                    data-testid="submit-voucher"
+                    disabled=""
+                    type="submit"
+                  >
+                    APPLY
+                  </button>
+                </form>
+              </div>
+            </div>
+            <div
+              class="sc-dQppl eJWKvx"
+            >
+              <div
+                class="cart-row "
+              >
+                <p>
+                  Subtotal
+                </p>
+                <div
+                  class="sc-bqyKva pvONl"
+                >
+                  <p
+                    class="Subtotal"
+                    data-testid="Subtotal"
+                  >
+                    USDNaN
+                  </p>
+                </div>
+              </div>
+              <div
+                class="cart-row "
+              >
+                <p>
+                  Shipping
+                </p>
+                <div
+                  class="sc-bqyKva pvONl"
+                >
+                  <p
+                    class="Shipping"
+                    data-testid="Shipping"
+                  >
+                    USD 0.00
+                  </p>
+                </div>
+              </div>
+              <div
+                class="cart-row "
+              >
+                <p>
+                  Discount
+                </p>
+                <div
+                  class="sc-bqyKva pvONl"
+                >
+                  <p
+                    class="Discount"
+                    data-testid="Discount"
+                  >
+                    USDNaN
+                  </p>
+                </div>
+              </div>
+              <div
+                class="cart-row  total"
+              >
+                <p>
+                  Total
+                </p>
+                <div
+                  class="sc-bqyKva pvONl"
+                >
+                  <p
+                    class="Total"
+                    data-testid="Total"
+                  >
+                    USD 0.00
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button
+            class="checkout-button"
+            data-testid="submit-order"
+            disabled=""
+            type="button"
+          >
+            <span>
+              CHECKOUT
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="sc-jSgupP dwGEGR"
+      data-testid="footer-cointainer"
+    >
+      <p
+        class="text--center"
+      >
+        ©2021. All Rights Reserved.
+      </p>
+      <a
+        href="https://github.com/leoronne/shopping-cart"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <svg
+          aria-hidden="true"
+          class="StyledIconBase-ea9ulj-0 cKCFNq sc-gKsewC imLBzV"
+          fill="currentColor"
+          focusable="false"
+          viewBox="0 0 100 100"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M49.998 11.963C28.461 11.963 11 29.425 11 50.965c0 17.231 11.172 31.849 26.671 37.003 1.952.361 2.662-.84 2.662-1.877 0-.924-.034-3.375-.051-6.633-10.849 2.359-13.138-5.229-13.138-5.229-1.774-4.505-4.331-5.703-4.331-5.703-3.541-2.418.269-2.371.269-2.371 3.914.277 5.974 4.018 5.974 4.018 3.478 5.96 9.129 4.235 11.35 3.243.353-2.525 1.363-4.24 2.476-5.217-8.659-.984-17.763-4.33-17.763-19.274 0-4.259 1.519-7.741 4.013-10.468-.399-.982-1.74-4.947.383-10.319 0 0 3.274-1.048 10.726 4.001 3.109-.869 6.446-1.303 9.763-1.316 3.312.014 6.65.447 9.763 1.316 7.447-5.049 10.716-4.001 10.716-4.001 2.128 5.372.788 9.337.388 10.319 2.5 2.727 4.008 6.209 4.008 10.468 0 14.979-9.117 18.279-17.805 19.241 1.398 1.205 2.646 3.59 2.646 7.229 0 5.211-.047 9.416-.047 10.695 0 1.045.701 2.26 2.681 1.873C77.836 82.798 89 68.191 89 50.965c0-21.54-17.461-39.002-39.002-39.002z"
+            fill-rule="evenodd"
+          />
+        </svg>
+      </a>
+    </div>
+  </div>
+</DocumentFragment>
+`;
